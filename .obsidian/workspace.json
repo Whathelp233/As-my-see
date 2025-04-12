@@ -1,0 +1,218 @@
+{
+  "main": {
+    "id": "f081deb9be87637e",
+    "type": "split",
+    "children": [
+      {
+        "id": "8025ee25bb1eef73",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "17c40a999a6507da",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Dynamicx/有关调车/调车测试整合.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "调车测试整合"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "3778ec62a3f6cedb",
+    "type": "split",
+    "children": [
+      {
+        "id": "0182a60d35cac6df",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "537b278973719bc8",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "文件列表"
+            }
+          },
+          {
+            "id": "156a9ecbc0108efc",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "搜索"
+            }
+          },
+          {
+            "id": "14cc03088527d185",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "书签"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 542.5
+  },
+  "right": {
+    "id": "d0db7179ff72b8d8",
+    "type": "split",
+    "children": [
+      {
+        "id": "5eee32ea6308464d",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "e218152efd2c188a",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "基础概念/基础概念：坐标系（TF）.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "基础概念：坐标系（TF） 的反向链接列表"
+            }
+          },
+          {
+            "id": "3375f6e02f9ae279",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "基础概念/基础概念：坐标系（TF）.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "基础概念：坐标系（TF） 的出链列表"
+            }
+          },
+          {
+            "id": "15730528ad9b0c39",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "标签"
+            }
+          },
+          {
+            "id": "f58815794bd1af79",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Dynamicx/有关调车/调车测试整合.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "调车测试整合 的大纲"
+            }
+          }
+        ],
+        "currentTab": 3
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:打开快速切换": false,
+      "graph:查看关系图谱": false,
+      "canvas:新建白板": false,
+      "daily-notes:打开/创建今天的日记": false,
+      "templates:插入模板": false,
+      "command-palette:打开命令面板": false,
+      "github-sync:Sync with Remote": false
+    }
+  },
+  "active": "f58815794bd1af79",
+  "lastOpenFiles": [
+    "新拓展坞的IP设置.pdf",
+    "Dynamicx/有关调车/Bug出现表.md",
+    "Dynamicx/有关调车/自瞄.md",
+    "Linux/Linux软链接、硬链接.md",
+    "Linux/open函数.md",
+    "未命名.canvas",
+    "Markdown/Python.md",
+    "Markdown/Markdown_公式块.md",
+    "Markdown/Latex.md",
+    "images/Latex/2023-04-20.md",
+    "Markdown/images/Latex/basic_demo1.gif",
+    "Markdown/images/Latex/lognormal_pdf.png",
+    "images/Latex/2024-01-28.md",
+    "images/Latex",
+    "images",
+    "Linux/actuator_coefficient.md",
+    "Dynamicx/img/urdf.png",
+    "Dynamicx/img/computer_deploy.png",
+    "Dynamicx/有关调车/打前哨站.md",
+    "Dynamicx/有关调车/一些便捷指令.md",
+    "Dynamicx/有关调车/有线调车.md",
+    "Dynamicx/有关调车/新拓展坞的IP设置.md",
+    "Dynamicx/有关调车/新车网口配置.md",
+    "Dynamicx/有关调车/远程遥控.md",
+    "Dynamicx/有关调车/command.md",
+    "Dynamicx/有关调车/Bullet发射装置.md",
+    "Dynamicx/有关调车/最大力矩 最大转速计算.md",
+    "Dynamicx/有关调车/新车流程.md",
+    "Dynamicx/有关调车/跑仿真或实车.md",
+    "Dynamicx/有关调车/切换显卡命令.md",
+    "Dynamicx/有关调车/新超电说明.pdf",
+    "Dynamicx/有关调车/拉取不是自己fork仓库的他人分支.md",
+    "Dynamicx/有关调车/调车测试整合.md",
+    "机器人学/惯性传感器（IMU）.md",
+    "pictures/image-20220117143400664.png",
+    "ROS/images/动态调参/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAUeWwj-mRqw==,size_20,color_FFFFFF,t_70,g_se,x_16-16772267818523.png",
+    "ROS/images/动态调参/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAUeWwj-mRqw==,size_20,color_FFFFFF,t_70,g_se,x_16.png",
+    "ROS/images/动态调参/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAUeWwj-mRqw==,size_18,color_FFFFFF,t_70,g_se,x_16.png",
+    "pictures/image-20220123191630569.png",
+    "pictures/image-20220121013559152.png",
+    "Dynamicx",
+    "Dynamicx/有关调车/调车笔记.pdf",
+    "Dynamicx/有关调车/2_Depend_ws.pdf"
+  ]
+}

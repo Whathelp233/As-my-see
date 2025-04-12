@@ -1,0 +1,150 @@
+机器人动力学方程
+====
+
+对机器人进行建模常用的是拉格朗日法和牛顿-欧拉法，在这里我们使用拉格朗日法。本文仅提供利用Sympy来辅助建立动力学方程的方法而不讲解原理，对运动学细节上面的推导请自己尝试去证明。
+
+
+
+使用Sympy
+----
+
+使用Sympy的方式有两种，你可以选择在Deepnote网页上在线使用Sympy，也可以在本地VS Code中安装sympy库来使用它。当然，于网页编辑会更便捷，我们建议使用网页编辑。
+
+
+`Deepnote <https://deepnote.com/workspace/chenhuiyu00s-workspace-0efe-ca118ef6-5a9c-405f-8565-3461a550fb3e/project/test-Duplicate-68e01bf6-3dd7-4786-849d-15bd94f92e3e/notebook/Notebook%201-6de95cef8ba64025920ce6a25e986380>`_
+`Sympy官网 <https://docs.sympy.org/latest/install.html>`_
+
+在官网中可以查看Sympy的使用方法，在开始之前建议先阅读一遍教程
+
+
+开始
+----
+和正常的拉格朗日推导一样，对于一个机器人模型，我们需要先定义它的状态空间模型：首先是状态向量，它用于描述模型的运动。一个最简的空间状态向量恰好能够描述一个模型的运动状态；同时对于一个具有驱动器的模型，我们还需要写出控制向量，它用于描述驱动器能够输出的力或力矩。
+
+以我们的平衡步兵为例，描述该机器人所需的状态向量
+**p**：机器人相对原点的位置矢量
+**phi**: 机器人朝向的旋转角度
+**theta**: 机器人倾斜角度
+**x_b_l**: 左滑块在轨道的位置
+**x_b_r**: 右滑块在轨道的位置
+同时根据拉格朗日推导法的需要，我们还需提供各个量的一阶，二阶导数
+phi_d,theta_d,x_b_l_d,x_b_r_d
+phi_dd,theta_dd,x_b_l_dd,x_b_r_dd
+代码：
+::
+    phi,theta,x_b_l,x_b_r = dynamicsymbols('phi,theta,x_b_l,x_b_r')
+    phi_d,theta_d,x_b_l_d,x_b_r_d = dynamicsymbols('phi,theta,x_b_l,x_b_r',1)
+    phi_dd,theta_dd,x_b_l_dd,x_b_r_dd = dynamicsymbols('phi,theta,x_b_l,x_b_r',2)
+
+现在列出控制向量，机器人底盘有驱动左右轮子的两个电机和驱动左右滑块的两个电机
+**T_l**: 左轮电机输出力矩
+**T_r**: 右轮电机输出力矩
+**f_bl**: 左滑块电机输出力
+**f_br**: 右滑块电机输出力
+::
+    T_l,T_r,f_bl,f_br = dynamicsymbols('T_l,T_r,f_bl,f_br')
+
+现在我们已经列出了状态向量和控制向量，对于一个模型我们还需要一些属性：
+m_w：轮子质量             
+i_w：轮子转动惯量         
+R；轮子半径
+m：车身质量
+g：重力加速度
+l：轮子质心到车体质心的距离
+i_m：车身转动惯量
+y_b：滑块相对车身坐标系y轴的轴向偏移位置
+z_b：滑块相对车身坐标系z轴的偏移高度
+m_b：滑块质量
+wheel_base：轮子相对车身的偏移位置
+::
+    m_w,i_w,R,m,g,l,i_m,y_b,z_b,m_b = symbols('m_w,i_w,R,m,g,l,i_m,y_b,z_b,m_b')
+    wheel_base = symbols('wheel_base')
+
+描述机器人的运动状态：
+t：时间
+q：机器人视为质点时的路程#机器人对坐标原点的位置矢量，随时间变化
+u： #机器人对坐标原点的速度矢量
+u_d：#机器人对坐标原点的加速度矢量
+x_d：#机器人位置对坐标原点的速度矢量的x轴分量
+y_d：#机器人位置对坐标原点的速度矢量的y轴分量
+x：#机器人位置对坐标原点位置的x轴分量
+y：#机器人位置对坐标原点位置的y轴分量
+::
+    t = symbols('t')        
+    q = dynamicsymbols('q') 
+    u = smp.diff(q,t)       
+    u_d = smp.diff(u,t)     
+    x_d = u*smp.cos(phi)    
+    y_d = u*smp.sin(phi)    
+    x = smp.integrate(x_d,t)
+    y = smp.integrate(y_d,t)
+
+定义机器人在世界坐标系下运动，我们需要以下参考系：
+world_0：世界原点
+world_frame：世界坐标系
+cart_frame：车身旋转坐标系(yaw)
+wheel_l_frame：左轮参考系
+wheel_r_frame：右轮参考系
+block_l_frame：左滑块参考系
+block_r_frame：右滑块参考系
+现在我们建立模型刚体或质点的连接关系，类似于UREF，我们需要描述一个Particle对象或RigidBody对象的质心，质量或其他的属性并用其初始化一个Body对象。
+在这个模型中我们需要描述车身，轮子，和滑块共5个刚体的属性
+::
+    world_0 = Point('world_0')
+    world_frame = ReferenceFrame('world')
+
+    cart_frame = world_frame.orientnew('cart','axis',[phi,world_frame.z])    # cart_frame: 车体旋转坐标系(yaw)
+
+    #机器人身体构造
+    base_0 = world_0.locatenew('base_0',x * world_frame.x + y * world_frame.y)
+    base_0.set_vel(world_frame,x_d * world_frame.x + y_d * world_frame.y)   
+    base_frame = cart_frame.orientnew('base','axis',[theta,cart_frame.y])   
+    base_mass_center = base_0.locatenew('base_mass_center',base_frame.z*l)   
+    base_inertia = inertia(base_frame,0,i_m,0)    #底盘刚体：围绕y轴的转动惯量
+    base_body = Body('base_body',base_mass_center,m,base_frame,base_inertia)
+
+    #机器人轮子构造
+    wheel_l_mc = base_0.locatenew('wheel_l_mc',wheel_base * base_frame.y)  
+    wheel_r_mc = base_0.locatenew('wheel_r_mc',-wheel_base * base_frame.y) 
+    wheel_l_mc.set_vel(world_frame,wheel_l_mc.pos_from(world_0).dt(world_frame))
+    wheel_r_mc.set_vel(world_frame,wheel_r_mc.pos_from(world_0).dt(world_frame))
+    wheel_l_frame = cart_frame.orientnew('wheel_l_frame','axis',[(q-phi*wheel_base/2)/R,cart_frame.y])#v*t=w*t*R -> s=θ*R,θ=s/R
+    wheel_r_frame = cart_frame.orientnew('wheel_r_frame','axis',[(q+phi*wheel_base/2)/R,cart_frame.y])#v*t=w*t*R -> s=θ*R,θ=s/R
+    wheel_l_frame.set_ang_vel(cart_frame,((u-phi_d*wheel_base/2)/R) * cart_frame.y)#v=w*R -> w=v/R
+    wheel_r_frame.set_ang_vel(cart_frame,((u+phi_d*wheel_base/2)/R) * cart_frame.y)
+    wheel_l_inertia = inertia(wheel_l_frame,0,i_w,0)
+    wheel_r_inertia = inertia(wheel_r_frame,0,i_w,0)
+    wheel_l_body = Body('wheel_l_body',wheel_l_mc,m_w,wheel_l_frame,wheel_l_inertia)
+    wheel_r_body = Body('wheel_r_body',wheel_r_mc,m_w,wheel_r_frame,wheel_r_inertia)
+
+    #机器人滑块构造
+    block_l_0 = base_0.locatenew('block_l_0',base_frame.x*x_b_l+base_frame.y*y_b+base_frame.z*(l+z_b))  
+    block_r_0 = base_0.locatenew('block_r_0',base_frame.x*x_b_r-base_frame.y*y_b+base_frame.z*(l+z_b))
+    block_l_0.set_vel(world_frame,block_l_0.pos_from(world_0).dt(world_frame))
+    block_r_0.set_vel(world_frame,block_r_0.pos_from(world_0).dt(world_frame))
+    block_l_frame = base_frame.orientnew('block','axis',[0,base_frame.x])
+    block_r_frame = base_frame.orientnew('block','axis',[0,base_frame.x])
+    block_l_body = Body('block_l_body',block_l_0,m_b,block_l_frame)
+    block_r_body = Body('block_r_body',block_r_0,m_b,block_r_frame)
+
+解算
+----
+上面，我们已经将机器人的模型建立起来了。现在将各个量导入来初始化Sympy的Lagrangian对象
+我们为它填入的参数为参考系和body对象
+::
+    L = Lagrangian(world_frame,wheel_l_body,wheel_r_body,base_body,block_l_body,block_r_body)
+
+**计算法**
+通过Lagrangian对象我们调用LagrangesMethod()函数对其进行解算，填入拉格朗日对象，状态向量以及非保守力或力矩.最后形成拉格朗日运动方程
+::
+    LM = LagrangesMethod(L,[q,phi,theta,x_b_l,x_b_r],forcelist=[(base_mass_center,-m*g*world_frame.z),(block_l_0,-m_b*g*world_frame.z),(block_r_0,-m_b*g*world_frame.z),(wheel_l_frame,T_l*wheel_l_frame.y),(base_frame,-T_l*base_frame.y),(wheel_r_frame,T_r*wheel_r_frame.y),(base_frame,-T_r*base_frame.y),(base_frame,cross(f_bl*base_frame.x,x_b_l*base_frame.x+z_b*base_frame.z+y_b*base_frame.y)),(base_frame,cross(f_br*base_frame.x,z_b*base_frame.z-y_b*base_frame.y)),(block_l_0,f_bl*base_frame.x),(block_r_0,f_br*base_frame.x)],frame=world_frame)
+    laq_eqs = LM.form_lagranges_equations()
+
+对方程进行线性化,函数linearize()返回返回拉格朗日方程中的A,B,u矩阵
+::
+    op_point = {q: 0, phi: 0, theta: 0, x_b_l: 0,x_b_r: 0,u: 0, phi_d: 0, theta_d: 0, x_b_l_d: 0, x_b_r_d:0,}
+    A, B, inp_vec = LM.linearize(q_ind=[q,phi,theta,x_b_l,x_b_r], qd_ind=[u,phi_d,theta_d,x_b_l_d,x_b_r_d], A_and_B=True, op_point=op_point)
+
+现在我们已经获得了拉格朗日方程，它的形式是
+**dx=A*x+B*r**
+其中x是状态向量x，r是输入向量，A是状态矩阵，B是输入矩阵
