@@ -157,15 +157,14 @@ timedatectl #验证
 
 ---
 
-2. 运行manual.launch和rm_dbus
+## 运行manual.launch和rm_dbus
 
 (1)出现报错：[rt_dbus] Unable to open dbus
 
 (2)solution：通过在dbus.cpp中看代码可以知道，打不开dbus的串口时就会报这个错，串口之类的硬件问题直接找电路解决（一般就是线松了，自己重新插插）
 
 ---
-
-3. 测试新拨弹method（减速比传动比都是（大比小）这样的形式，）
+## 测试新拨弹method（减速比传动比都是（大比小）这样的形式，）
 
 - 修改4处参数：
 
@@ -184,7 +183,7 @@ timedatectl #验证
 
 ---
 
-4. 开gimbal_controller，云台会甩
+## 开gimbal_controller，云台会甩
 
 - 正常情况下，开启orientation_controller、gimbal_controller，云台固定在开启控制前的位置，电机有力；因为初始的时候云台是rate模式，没有给pitch_rate跟yaw_rate的话那pitch跟yaw就必须保持静止，也就是停在当前这个位置
 - **cause**：urdf中的imu的坐标系跟实际的不一样，那么假设tf中imu姿态是正的，但是实物yaw不正，
@@ -192,13 +191,13 @@ timedatectl #验证
 
 ---
 
-5. 开遥控器后，一直小陀螺，yaw不动
+## 开遥控器后，一直小陀螺，yaw不动
 
 - cause：yaw线断了，导致yaw掉了，获取不到yaw跟baselink的转换，他就会一直修正那个位置
 
 ---
 
-6. 使用网线进行调试
+##使用网线进行调试
 
 - 用网线连接nuc和自己的电脑
 - 打开一个终端，输入命令（可以扫描出网线连接的设备的ip）：
@@ -212,18 +211,18 @@ nmap 10.42.0.1/24
 
 ---
 
-7. rviz看tf之类的东西，要开robot_state_controller，因为robot_state会高频维护tf；如果要看关节数据，就开joint state controller
+##rviz看tf之类的东西，要开robot_state_controller，因为robot_state会高频维护tf；如果要看关节数据，就开joint state controller
 
 ---
 
-8. 修改power_limit.h中的normal()，传到nuc上编译后，新代码并没有生效
+##修改power_limit.h中的normal()，传到nuc上编译后，新代码并没有生效
 
 - **cause**：单独编译rm_common，可以看到catkin build编译的时间很短(0.2s)，基本可以判断虽然显示编译成功，但是实际上并没有编译这个包
 - **solution**：catkin clean再catkin build
 
 ---
 
-9. 使用热点登陆nuc
+##使用热点登陆nuc
 
 - 将手机热点的ssid跟密码改成 dynamicX604_5G & dynamicx（因为配nuc的时候设置好了这个wifi，所以他会自动连接这个ssid的wifi，用存储的密码）
 - 自己的电脑连接这个热点
@@ -231,7 +230,7 @@ nmap 10.42.0.1/24
 
 ---
 
-10. 测试英雄发射重复度
+##测试英雄发射重复度
 
 problem
 
@@ -239,7 +238,7 @@ problem
 
 ---
 
-11. hero测发射，为防止yaw移动方法
+##hero测发射，为防止yaw移动方法
 
 - 关闭orientation_controller，这样云台就是用底盘的位置数据来移动的，就是如果把底盘架起来，推云台的遥杆然后松开，云台会回到原来的位置，因为底盘没有动，
 - 如果开启orientation_controller，那云台就是用imu的数据的，推摇杆之后，他会停在那个位置，然后让底盘follow过去
@@ -247,26 +246,26 @@ problem
 
 ---
 
-12. 英雄imu一定要校准，但是步兵这些不用，因为英雄对这些东西的精度要求更高
+##英雄imu一定要校准，但是步兵这些不用，因为英雄对这些东西的精度要求更高
 
 ---
 
-13. 记住一定要确定校准成功，**终端显示校准成功也要看确保真的成功**；拨盘校准的时候放一颗弹丸就行，防止他是因为卡住弹丸而不是卡到机械限位停止反转
+记住一定要确定校准成功，**终端显示校准成功也要看确保真的成功**；拨盘校准的时候放一颗弹丸就行，防止他是因为卡住弹丸而不是卡到机械限位停止反转
 
 ---
 
-14. 左推云台遥杆然后松开，发现底盘一直缓慢follow
+## 左推云台遥杆然后松开，发现底盘一直缓慢follow
 
 - 看yaw图像，松开遥杆后发现yaw的位置一直在类似正弦型的波动，猜测dbus有问题
 - 查看dbus_data
 
-15. 给电机发送指令后，电机正常运行一会后不受控制乱转
+##给电机发送指令后，电机正常运行一会后不受控制乱转
 
 - eg：给拨盘发1hz，正常转一会后，乱转
 - **cause**：电机id太靠后，导致丢包严重
 - **solution**：将电机id改前
 
-16. 代码中使用以下这句
+## 代码中使用以下这句
 
 ```c++
 tf_buffer_.transform(pos_yaw_.point, pos_odom_.point, "odom");
@@ -296,17 +295,17 @@ Invoking "make -j4 -l4" failed
 #include <tf2_geometry_msgs/tf2_geometry_msgs.h>
 ```
 
-17. ubuntu20.04打开系统监视器
+##ubuntu20.04打开系统监视器
 
 ```
 gnome-system-monitor 
 ```
 
-18. 更换实时性内核后，无法更新nvidia驱动
+## 更换实时性内核后，无法更新nvidia驱动
 
 - cause：实时性内核无法安装nvidia驱动，必须换回标准linux内核后，才能安装，并且推荐在系统自带的Software&Update中安装
 
-19. clion中.py文件中，import rospy报错
+##clion中.py文件中，import rospy报错
 
 - cause：没有导入python解释器
 - solution：
@@ -316,7 +315,7 @@ pycharm左上角，依次点击 File->settings->Project->Project interpreter
 点击上侧边栏最后一个按钮：Interpreter Paths
 在弹出的界面中，选择右侧的加号，复制ros中的Python路径
 
-20. 动yaw时，pitch有一个类似正弦的setpoint
+##动yaw时，pitch有一个类似正弦的setpoint
 
 **cause**：
 
@@ -328,11 +327,11 @@ pycharm左上角，依次点击 File->settings->Project->Project interpreter
 - 保证imu的安装是正的
 - 不加载orientation_controller（对实际其实影响不大，因为开了orientation controller那么base_link跟odom就肯定不会水平，但是实际表现没有什么影响，只有在测重复度时可能会有影响，所以测试时建议不加载）
 
-21. 进入track后，摇杆不能操控云台，但是云台没有移动
+##进入track后，摇杆不能操控云台，但是云台没有移动
 
 **cause**：没有解算出来，可能是射速上限没有设置对
 
-22. 进入track并且瞄准后，不能发射
+## 进入track并且瞄准后，不能发射
 
 **cause**：没有解算出来
 
