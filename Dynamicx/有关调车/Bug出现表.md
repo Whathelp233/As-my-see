@@ -12,7 +12,7 @@
 
 带来的主要影响：连不上easywifi，不方便调车
 
-主要解决方法：主要是上网去找对应的驱动，然后在本地编译后移到NUC的 /lib/firmware/ 目录下
+主要解决方法：主要是上网去找对应的驱动，然后在本地解压后全部移到NUC的 /lib/firmware/ 目录下
 
 一般来说队里的NUC是 intel的网卡，它的网卡驱动可以直接在官网上找到已经编译的版本
 
@@ -20,7 +20,41 @@ https://www.intel.cn/content/www/cn/zh/download/824804/intel-wireless-wi-fi-driv
 
 （注意对应的内核版本，这里的内核最低好像都是6.11以上，如果需要低内核版本后面更新）
 
+#### 具体流程
+##### 1、检查无线网卡的状态
+终端输入
+`sudo nmcli dev`
+查看网络设备列表，如果设备状态为**unmanged**，那首先重新配置网络管理器（排除是配置文件的故障）
+##### 2、重新配置网络管理器NetworkManager
 
+
+###### 清空/etc/network/interfaces配置
+使用 vim（或者其他文本编辑器）打开`/etc/network/interfaces`
+```
+sudo vim /etc/network/interfaces
+```
+
+
+仅保留以下内容，剩下的删除
+```
+auto lo
+iface lo inet loopback
+```
+重启NetworkManager服务
+```
+sudo systemctl restart NetworkManager
+```
+重启电脑，继续查看网络设备，如果无线网卡仍然为（unmanaged）未管理，那基本就是驱动没装上的问题。
+##### 3、安装驱动
+接下来就要去网上找对应的驱动（现在假设驱动已经找到了，如果没有的可以在群里问其实）
+然后，先更新系统的软件源和依赖
+```
+sudo apt update
+sudo apt upgrade
+```
+然后解压固件包，把里面有iwlwifi的部分全部移动到 /lib/firmware
+`sudo cp iwlwifi-* /lib/firmware/ #（复制所有 AX211 相关的驱动到ubuntu的固件库）`
+然后重启即可
 
 ### 在换完内核后，时间戳出现异常
 带来的主要影响：bag存储混乱
