@@ -1,0 +1,9 @@
+{
+    "document_monitor_enabled": true,
+    "git_maintainer_enabled": true,
+    "document_monitor_schedule": "0 3 * * *",
+    "git_maintainer_schedule": "0 4 * * *",
+    "notification_enabled": false,
+    "max_backups": 30,
+    "quality_threshold": 50
+}

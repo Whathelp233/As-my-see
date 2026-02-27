@@ -1,7 +1,7 @@
 #!/bin/bash
-# auto_document_monitor.sh
-# 自动文档质量监控系统
-# 功能：每天自动检查文档质量，生成报告，优化浅层文档
+# auto_document_monitor_fixed.sh
+# 自动文档质量监控系统（修复版）
+# 功能：每天自动检查文档质量，生成报告
 
 set -euo pipefail
 
@@ -116,7 +116,9 @@ analyze_document_quality() {
     log_info "质量分析完成: $report_file"
     
     # 返回浅层文档列表
-    echo "${shallow_docs[@]}"
+    for doc in "${shallow_docs[@]}"; do
+        echo "$doc"
+    done
 }
 
 # 分析文档深度
@@ -152,241 +154,6 @@ analyze_document_depth() {
     echo "$depth_score"
 }
 
-# 自动优化浅层文档
-auto_enhance_shallow_docs() {
-    local shallow_docs=("$@")
-    
-    if [ ${#shallow_docs[@]} -eq 0 ]; then
-        log_info "没有需要优化的浅层文档"
-        return 0
-    fi
-    
-    log_info "开始自动优化 ${#shallow_docs[@]} 个浅层文档..."
-    
-    for doc_rel in "${shallow_docs[@]}"; do
-        local doc_path="$DOCS_DIR/$doc_rel"
-        local doc_dir=$(dirname "$doc_path")
-        local doc_name=$(basename "$doc_path" .md)
-        
-        log_info "优化文档: $doc_rel"
-        
-        # 备份原文档
-        cp "$doc_path" "$doc_path.backup_$(date '+%Y%m%d_%H%M%S')"
-        
-        # 根据文档类型进行优化
-        if [[ "$doc_rel" == *"cpp"* ]] || [[ "$doc_name" == *"C++"* ]]; then
-            enhance_cpp_document "$doc_path"
-        elif [[ "$doc_rel" == *"linux"* ]] || [[ "$doc_name" == *"Shell"* ]]; then
-            enhance_shell_document "$doc_path"
-        elif [[ "$doc_rel" == *"robotics"* ]] || [[ "$doc_name" == *"SLAM"* ]]; then
-            enhance_slam_document "$doc_path"
-        elif [[ "$doc_rel" == *"qt"* ]]; then
-            enhance_qt_document "$doc_path"
-        else
-            enhance_general_document "$doc_path"
-        fi
-        
-        log_info "文档优化完成: $doc_rel"
-    done
-}
-
-# 增强C++文档
-enhance_cpp_document() {
-    local doc_path="$1"
-    
-    # 读取原内容
-    local original_content=$(cat "$doc_path")
-    
-    # 构建增强内容
-    local enhanced_content="# $(basename "$doc_path" .md)
-> 自动优化版本 | 更新时间: $(date '+%Y-%m-%d')
-> 状态: 已从浅层文档优化为技术指南
-
-## 📋 概述
-
-$(echo "$original_content" | head -10)
-
-## 🚀 核心概念
-
-### 1. 基础原理
-（这里自动添加相关技术原理）
-
-### 2. 关键技术
-（这里自动添加关键技术点）
-
-## 💻 代码示例
-
-```cpp
-// 示例代码
-#include <iostream>
-#include <vector>
-
-int main() {
-    std::cout << \"Hello, C++!\" << std::endl;
-    return 0;
-}
-```
-
-## 🛠️ 实践应用
-
-### 实际项目中的应用
-（这里自动添加实际应用场景）
-
-## 📚 学习资源
-
-### 推荐阅读
-- 《C++ Primer》
-- 《Effective Modern C++》
-- CppReference: https://en.cppreference.com/
-
-### 在线练习
-- LeetCode C++题目
-- HackerRank C++挑战
-
----
-
-*本文档已自动优化，建议进一步补充具体技术细节和实际案例。*"
-    
-    # 写入增强内容
-    echo "$enhanced_content" > "$doc_path"
-}
-
-# 增强Shell文档
-enhance_shell_document() {
-    local doc_path="$1"
-    
-    local enhanced_content="# $(basename "$doc_path" .md)
-> 自动优化版本 | 更新时间: $(date '+%Y-%m-%d')
-
-## 🎯 脚本用途
-
-## 📝 完整实现
-
-```bash
-#!/bin/bash
-# $(basename "$doc_path" .md).sh
-# 用途: [自动生成]
-
-set -euo pipefail
-
-# 配置
-SCRIPT_NAME=\"\$(basename \"\$0\")\"
-LOG_FILE=\"/var/log/\${SCRIPT_NAME%.sh}.log\"
-
-# 日志函数
-log() {
-    echo \"[\$(date '+%Y-%m-%d %H:%M:%S')] \$*\" | tee -a \"\$LOG_FILE\"
-}
-
-# 主函数
-main() {
-    log \"开始执行\"
-    
-    # 主要逻辑
-    # [自动生成具体逻辑]
-    
-    log \"执行完成\"
-}
-
-# 错误处理
-trap 'log \"脚本被中断\"; exit 1' INT TERM
-
-# 运行
-if [[ \"\${BASH_SOURCE[0]}\" == \"\${0}\" ]]; then
-    main \"\$@\"
-fi
-```
-
-## 🔧 使用说明
-
-### 安装
-```bash
-chmod +x $(basename "$doc_path" .md).sh
-```
-
-### 运行
-```bash
-./$(basename "$doc_path" .md).sh [参数]
-```
-
-## 📊 参数说明
-
-| 参数 | 说明 | 默认值 |
-|------|------|--------|
-| -h, --help | 显示帮助 | - |
-| -v, --version | 显示版本 | - |
-
-## 🚀 扩展功能
-
-### 1. 错误处理增强
-### 2. 日志系统改进
-### 3. 性能优化
-
----
-
-*这是一个自动生成的Shell脚本模板，请根据实际需求修改。*"
-    
-    echo "$enhanced_content" > "$doc_path"
-}
-
-# 通用文档增强
-enhance_general_document() {
-    local doc_path="$1"
-    local doc_name=$(basename "$doc_path" .md)
-    
-    local enhanced_content="# $doc_name
-> 自动优化版本 | 更新时间: $(date '+%Y-%m-%d')
-
-## 📖 概述
-
-## 🎯 学习目标
-
-## 📚 核心内容
-
-### 1. 基础概念
-### 2. 关键技术
-### 3. 实践应用
-
-## 💡 重点难点
-
-## 🔗 相关资源
-
-### 官方文档
-### 教程指南
-### 实践项目
-
-## ❓ 常见问题
-
-## 📈 进阶学习
-
----
-
-*本文档已自动优化，建议补充具体技术内容和实际案例。*"
-    
-    echo "$enhanced_content" > "$doc_path"
-}
-
-# 主函数
-main() {
-    log_info "=== 开始文档质量监控 ==="
-    
-    # 1. 备份当前状态
-    backup_current_state
-    
-    # 2. 分析文档质量
-    shallow_docs=$(analyze_document_quality)
-    
-    # 3. 自动优化浅层文档
-    if [ -n "$shallow_docs" ]; then
-        auto_enhance_shallow_docs $shallow_docs
-    fi
-    
-    # 4. 生成总结报告
-    generate_summary_report
-    
-    log_info "=== 文档质量监控完成 ==="
-}
-
 # 生成总结报告
 generate_summary_report() {
     local summary_file="$REPORT_DIR/summary_$(date '+%Y%m%d').md"
@@ -399,17 +166,79 @@ generate_summary_report() {
     echo "" >> "$summary_file"
     echo "- ✅ 备份完成" >> "$summary_file"
     echo "- 📊 质量分析完成" >> "$summary_file"
-    echo "- 🔧 浅层文档优化完成" >> "$summary_file"
     echo "- 📝 报告生成完成" >> "$summary_file"
     echo "" >> "$summary_file"
     
     echo "## 下一步建议" >> "$summary_file"
     echo "" >> "$summary_file"
-    echo "1. 审查优化后的文档，补充具体技术内容" >> "$summary_file"
-    echo "2. 添加实际代码示例和项目案例" >> "$summary_file"
+    echo "1. 审查分析报告，识别需要优化的文档" >> "$summary_file"
+    echo "2. 手动优化浅层文档，增加技术深度" >> "$summary_file"
     echo "3. 定期运行本监控脚本，保持文档质量" >> "$summary_file"
     
     log_info "总结报告生成: $summary_file"
+}
+
+# 显示帮助
+show_help() {
+    echo "用法: $0 [选项]"
+    echo ""
+    echo "选项:"
+    echo "  --help     显示此帮助信息"
+    echo "  --version  显示版本信息"
+    echo "  --analyze  只进行分析，不进行优化"
+    echo ""
+    echo "功能:"
+    echo "  自动分析文档质量，生成报告，识别需要优化的文档"
+    echo ""
+    echo "输出:"
+    echo "  - 质量分析报告: reports/quality_report_YYYYMMDD.md"
+    echo "  - 总结报告: reports/summary_YYYYMMDD.md"
+    echo "  - 日志文件: logs/document_monitor_YYYYMMDD.log"
+    echo "  - 备份文件: backups/backup_YYYYMMDD_HHMMSS.tar.gz"
+}
+
+# 主函数
+main() {
+    local action="full"
+    
+    # 解析参数
+    for arg in "$@"; do
+        case "$arg" in
+            --help)
+                show_help
+                exit 0
+                ;;
+            --analyze)
+                action="analyze"
+                ;;
+            --version)
+                echo "文档质量监控系统 v1.0"
+                exit 0
+                ;;
+        esac
+    done
+    
+    log_info "=== 开始文档质量监控 ==="
+    
+    # 1. 备份当前状态
+    backup_current_state
+    
+    # 2. 分析文档质量
+    shallow_docs=$(analyze_document_quality)
+    
+    # 3. 显示分析结果
+    if [ -n "$shallow_docs" ]; then
+        log_warning "发现 $(echo "$shallow_docs" | wc -l) 个浅层文档需要优化"
+        echo "需要优化的文档:"
+        echo "$shallow_docs"
+    else
+        log_info "没有发现浅层文档，所有文档质量良好"
+    fi
+    
+    # 4. 生成总结报告
+    generate_summary_report
+    
+    log_info "=== 文档质量监控完成 ==="
 }
 
 # 运行主函数
