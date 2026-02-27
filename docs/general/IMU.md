@@ -25,3 +25,14 @@
 # 5. 不同精度、价格对应的应用场景
 
 ![image](https://img-blog.csdnimg.cn/20190910201426711.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3podWlxaXV6aHVveXVlNTgz,size_16,color_FFFFFF,t_70)
+
+## 内容优化建议
+
+> 此文档内容较为简略，建议补充以下内容：
+
+1. **代码示例**: 添加实际可运行的代码
+2. **应用场景**: 说明在实际项目中的用途
+3. **最佳实践**: 分享经验教训和技巧
+4. **扩展阅读**: 链接到相关学习资源
+
+*最后检查: 2026-02-27 14:17:13*

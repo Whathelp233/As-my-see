@@ -18,3 +18,14 @@
 - 由于这种计算位置的方法会产生累积误差，而且无法消除（比如机器人真实移动了7m，但是由于累积误差，计算出来他移动了10m），因此odom相对map坐标系会漂移
 
 <img src="https://img-blog.csdnimg.cn/20200405165055234.JPG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5Nzc5MjMz,size_64,color_FFFFFF,t_70" alt="image" style="zoom: 25%;" />
+
+## 内容优化建议
+
+> 此文档内容较为简略，建议补充以下内容：
+
+1. **代码示例**: 添加实际可运行的代码
+2. **应用场景**: 说明在实际项目中的用途
+3. **最佳实践**: 分享经验教训和技巧
+4. **扩展阅读**: 链接到相关学习资源
+
+*最后检查: 2026-02-27 14:17:13*

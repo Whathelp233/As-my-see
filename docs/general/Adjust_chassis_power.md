@@ -20,3 +20,14 @@
 
 1. command中的power limit是由manual调用command sender发送的，而command sender会调用rm_common中的power_limit.h来给power limit赋值
 2. 关于赋的值的大小，可看power_limit.md
+
+## 内容优化建议
+
+> 此文档内容较为简略，建议补充以下内容：
+
+1. **代码示例**: 添加实际可运行的代码
+2. **应用场景**: 说明在实际项目中的用途
+3. **最佳实践**: 分享经验教训和技巧
+4. **扩展阅读**: 链接到相关学习资源
+
+*最后检查: 2026-02-27 14:17:12*
