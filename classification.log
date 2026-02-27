@@ -1,0 +1,377 @@
+🚀 文档分类系统启动
+==================
+创建标准目录结构...
+✅ 目录结构创建完成
+处理现有子目录...
+
+处理目录: Linux
+  📄 C++多线程.md → cpp/
+  📄 Linux软链接、硬链接.md → linux/
+  📄 Shell脚本.md → linux/
+  📄 Socketcan.md → embedded/
+  📄 actuator_coefficient.md → general/
+  📄 open函数.md → general/
+  📄 内存寻址1_地址.md → general/
+  📄 内存寻址2_分段.md → general/
+  📄 内存寻址3_描述符表.md → general/
+  📄 内存寻址4_分页.md → general/
+  📄 内存寻址5_硬件高速缓存.md → general/
+  📄 内存寻址6_Linux中的分页.md → linux/
+  📄 内存寻址7_物理内存.md → general/
+  📄 内存寻址8_进程页表.md → general/
+  📄 虚拟地址、逻辑地址、线性地址、物理地址的区别.md → general/
+处理目录: ROS
+  📄 1_前言.md → general/
+  📄 ESP8266_arduino.md → general/
+  📄 Fusion360脚本导出URDF.md → linux/
+  📄 Nanopi开发板.md → general/
+  📄 PID控制.md → robotics/
+  📄 PID的程序优化.md → general/
+  📄 PID算法的程序流程.md → general/
+  📄 PWM与力矩指令转换.md → general/
+  📄 ROS学习.md → ros/
+  📄 ROS激光雷达建图导航.md → ros/
+  📄 ROS激光雷达建图导航2.md → ros/
+  📄 ROS编程.md → ros/
+  📄 ROS通信_dev.md → ros/
+  📄 TF2.md → ros/
+  📄 URDF.md → ros/
+  📄 URDFTransmission.md → ros/
+  📄 Webots建模仿真.md → general/
+  📄 class RealtimeBuffer.md → general/
+  📄 class RealtimePublisher.md → general/
+  📄 ros_control.md → ros/
+  📄 ros_control补充解析.md → ros/
+  📄 动态调参.md → general/
+  📄 句柄.md → general/
+  📄 将ROS和STM32连接.md → ros/
+  📄 建模导出URDF.md → ros/
+  📄 建立小车.md → projects/
+  📄 建立控制器.md → robotics/
+  📄 开环控制算法.md → robotics/
+  📄 教程案例——建立机械臂.md → projects/
+  📄 机器人路径规划与轨迹优化.md → robotics/
+  📄 深度相机.md → general/
+  📄 自定义rqt插件.md → qt/
+处理目录: vision
+  📄 rm_digtialimg_proc.md → general/
+  📄 形态学处理.md → vision/
+  📄 色彩分割.md → vision/
+  删除空目录: vision
+处理目录: 基础概念
+  📄 CAN命令.md → embedded/
+  📄 CAN总线 1.md → embedded/
+  📄 CAN编程(2).md → embedded/
+  📄 CAN编程.md → embedded/
+  📄 Cmake install.md → general/
+  📄 Cmake 常用变量.md → general/
+  📄 Cmake 常见问题.md → general/
+  📄 Cmake 结构.md → general/
+  📄 EtherCAT工业以太网通信.md → embedded/
+  📄 Github工作流程.md → general/
+  📄 Yaml指令.md → general/
+  📄 can-utils.md → embedded/
+  📄 can总线.md → embedded/
+  📄 Adjust_chassis_power.md → general/
+  📄 DJI遥控校准.md → general/
+  📄 IMU零飘补偿.md → general/
+  📄 shoot test.md → general/
+  📄 手眼标定.md → general/
+  📄 相机、imu联合标定.md → general/
+  📄 相机标定.md → general/
+  📄 自启.md → general/
+  📄 自瞄.md → general/
+  📄 rm2_controls.md → general/
+  📄 shell脚本.md → linux/
+  📄 study note.md → general/
+  📄 GM6020云台电机.md → robotics/
+  📄 GPIO.md → general/
+  📄 IMU.md → general/
+  📄 Kill Gazebo.md → general/
+  📄 Linux下的can编程.md → linux/
+  📄 PC使用gpio.md → general/
+  📄 PID控制器.md → robotics/
+  📄 URDF.md → ros/
+  📄 Ubuntu20.04配置ssh.md → resources/
+  📄 Unity + ROS.md → ros/
+  📄 engineer_middleware.md → general/
+  📄 gazebo中运行相机.md → general/
+  📄 github.io.md → general/
+  📄 map_odom_baselink.md → general/
+  📄 ros control.md → ros/
+  📄 socketcan.md → embedded/
+  📄 socketcan数据传输.md → embedded/
+  📄 ubuntu20.04 server通过配置网卡连接wifi.md → linux/
+  📄 unordered_map容器.md → general/
+  📄 使用rosdepc.md → ros/
+  📄 如何编写controller.md → general/
+  📄 宏.md → general/
+  📄 导航.md → general/
+  📄 底盘轮系的速度计算（全向轮）.md → general/
+  📄 底盘轮系的速度计算（舵轮）.md → general/
+  📄 底盘轮系的速度计算（麦克纳姆轮）.md → general/
+  📄 开发日常.md → general/
+  📄 控制器注册为插件.md → robotics/
+  📄 控制组学习清单.md → robotics/
+  📄 机器人比赛中常用的底盘轮系简介.md → robotics/
+  📄 气动发射.md → general/
+  📄 编码器.md → general/
+  📄 自定义硬件接口.md → general/
+  📄 踩坑日记.md → general/
+  📄 ubuntu20.04更换n卡驱动后无法调节亮度.md → linux/
+  📄 ubuntu20.04网线连接校园网.md → linux/
+  📄 从零开始部署平衡开发环境和仿真（修改版本）.md → projects/
+  📄 关于CAN通信.md → embedded/
+  📄 关于调电机.md → robotics/
+  📄 bind()和connect()函数.md → general/
+  📄 boostbind()函数.md → general/
+  📄 ioctl()函数.md → general/
+  📄 socket() 函数.md → general/
+  📄 write()和read()函数.md → general/
+  📄 字符串模糊匹配.md → general/
+  📄 滤波函数.md → general/
+  📄 基础概念：坐标系（TF）.md → ros/
+  📄 建立SSH.md → linux/
+  📄 快速部署电脑.md → projects/
+  📄 无人机总览.md → general/
+  📄 有助于检测电脑的一些命令行命令.md → general/
+  📄 电机说明.md → robotics/
+  📄 远程拉取.md → general/
+处理目录: 机器人学
+  📄 LQR,MPC总结.md → learning/
+  📄 WBC.md → general/
+  📄 传感器数据分析.md → robotics/
+  📄 底盘轮系介绍.md → general/
+  📄 惯性传感器（IMU）.md → robotics/
+  📄 插件&控制器.md → robotics/
+  📄 机器人动力学—拉格朗日法.md → robotics/
+  📄 从零学分析力学.md → general/
+  📄 动力学推导.md → robotics/
+  📄 安装Sympy.md → general/
+  📄 建模理论问题.md → general/
+  📄 约束和拉格朗日方程.md → math/
+  📄 OSC2.md → general/
+  📄 正逆运动学.md → robotics/
+  📄 编码器.md → general/
+  📄 麦克拉姆轮的运动学分析.md → robotics/
+处理目录: 激光SLAM
+  📄 SLAM的基本知识.md → robotics/
+  📄 kd树.md → general/
+  📄 三维空间刚体运动.md → general/
+  📄 学习FAST-LIO2过程中补充基础知识.md → learning/
+  删除空目录: 激光SLAM
+处理目录: ros2
+  📄 clion配置ros2开发环境.md → ros/
+  📄 docker开发ros2.md → ros/
+  📄 ros2 note.md → ros/
+  📄 编写ros2 controller.md → ros/
+  删除空目录: ros2
+处理目录: Markdown
+  📄 Latex.md → resources/
+  📄 Markdown_公式块.md → resources/
+  📄 Python.md → resources/
+处理目录: 杂项（特殊需要）
+  📄 1_电信号.md → signals/
+  📄 2_二极管.md → general/
+  📄 3_晶体管的结构及符号.md → general/
+  📄 4_放大的概念.md → general/
+  📄 5_基本共射放大电路各元件的作用与工作原理.md → electronics/
+  📄 6_放大电路的分析方法.md → electronics/
+  📄 7_多级放大电路.md → electronics/
+  📄 8_集成运放.md → general/
+  📄 9_放大电路的反馈.md → electronics/
+  📄 Arduino基础.md → embedded/
+  📄 1_数制和编码.md → general/
+  📄 LeetCode.md → general/
+  📄 1_开始.md → general/
+  📄 CubeMax.md → general/
+  📄 PCB设计.md → general/
+  📄 URDF and Git pre-commit gitignore学习历程.md → ros/
+  📄 10_鼠标事件.md → general/
+  📄 11_定时器.md → general/
+  📄 12_事件分发_过滤器.md → general/
+  📄 13_绘图事件.md → general/
+  📄 14_文件读取.md → general/
+  📄 1_Qt.md → qt/
+  📄 2_可视化ui设置.md → general/
+  📄 3_Qt核心特点.md → qt/
+  📄 4_对象树.md → qt/
+  📄 5_Lambda表达式.md → qt/
+  📄 5_Lambda表达式_qt.md → qt/
+  📄 6_QMainWindow菜单栏.md → qt/
+  📄 7_资源文件添加.md → resources/
+  📄 8_对话框.md → qt/
+  📄 9_自定义控件.md → qt/
+  📄 QT项目开发需求.md → projects/
+  📄 Containers控件们.md → qt/
+  📄 Display Widgets控件.md → qt/
+  📄 Input Widgets控件.md → qt/
+  📄 LineEdit控件.md → qt/
+  📄 SpaceItem弹簧控件.md → qt/
+  📄 TextEdit控件.md → qt/
+  📄 Widget控件.md → qt/
+  📄 按钮控件.md → qt/
+  📄 样式表.md → resources/
+  📄 1_信号.md → signals/
+  📄 2_阶跃信号与冲激信号.md → signals/
+  📄 3_系统.md → signals/
+  📄 朝花夕拾.md → general/
+  📄 C++游戏编程.md → cpp/
+  📄 Markdown中如何实现内容折叠操作.md → resources/
+  📄 人际学习.md → learning/
+  📄 未来学习.md → learning/
+  📄 数学建模.md → math/
+  📄 易经.md → math/
+  📄 线性代数.md → math/
+  📄 第三章.md → electronics/
+开始分类所有文档...
+
+  📄 1_Qt.md → qt/
+  📄 1_信号.md → signals/
+  📄 1_开始.md → general/
+  📄 2_可视化ui设置.md → general/
+  📄 2_阶跃信号与冲激信号.md → signals/
+  📄 3_Qt核心特点.md → qt/
+  📄 3_系统.md → signals/
+  📄 4_对象树.md → qt/
+  📄 5_Lambda表达式.md → qt/
+  📄 5_Lambda表达式_qt.md → qt/
+  已处理: 10/10
+  📄 6_QMainWindow菜单栏.md → qt/
+  📄 7_资源文件添加.md → resources/
+  📄 8_对话框.md → qt/
+  📄 9_自定义控件.md → qt/
+  📄 Containers控件们.md → qt/
+  📄 CubeMax.md → general/
+  📄 C++游戏编程.md → cpp/
+  📄 Display Widgets控件.md → qt/
+  📄 RM_HARWARE硬件接口.md → general/
+  📄 before reading.md → general/
+  已处理: 20/20
+  📄 command_sender.md → general/
+  📄 校准队列.md → general/
+  📄 AverageFilter.md → general/
+  📄 MovingAverageFilter.md → general/
+  📄 RampFilter.md → general/
+  📄 filter.md → general/
+  📄 robot_state_interface.md → general/
+  📄 rm_dbus.md → general/
+  📄 before_reading.md → general/
+  📄 can_bus.md → embedded/
+  已处理: 30/30
+  📄 control_loop.md → general/
+  📄 gpio_manager.md → general/
+  📄 hardware_interface.md → general/
+  📄 parse.md → general/
+  📄 rm_hw.md → general/
+  📄 socketcan.md → embedded/
+  📄 Referee_dev.md → general/
+  📄 Referee操作手册.md → general/
+  📄 Referee移植.md → general/
+  📄 Referee裁判系统.md → signals/
+  已处理: 40/40
+  📄 super_capacity.md → general/
+  📄 Gimbal云台装置.md → general/
+  📄 calibration_controller.md → general/
+  📄 chassis_controller.md → general/
+  📄 controller的创建(一).md → general/
+  📄 controller的创建(二).md → general/
+  📄 gimbal_controller.md → general/
+  📄 gpio_controller.md → general/
+  📄 orientation_controller.md → general/
+  📄 robot_state_controller.md → general/
+  已处理: 50/50
+  📄 shooter_controller.md → general/
+  📄 控制器们——chasis.md → robotics/
+  📄 控制器的信息获取.md → robotics/
+  📄 配置文件创建controllers.md → resources/
+  📄 Manual操纵系统.md → signals/
+  📄 manual.md → general/
+  📄 代码库CAN.md → embedded/
+  📄 FSM状态机.md → general/
+  📄 offset大全.md → general/
+  📄 哨兵学习.md → learning/
+  已处理: 60/60
+  📄 调车流程及注意事项.md → general/
+  📄 全覆盖路径.md → general/
+  📄 行为树.md → general/
+  📄 在一切一切之前（新控制队员入队之后的一些必要内容）.md → robotics/
+  📄 Bug出现表.md → general/
+  📄 Bullet发射装置.md → general/
+  📄 command.md → general/
+  📄 imu零飘补偿.md → general/
+  📄 rosbag.md → ros/
+  📄 yaw、pitch_pid调试.md → general/
+  已处理: 70/70
+  📄 一些便捷指令.md → general/
+  📄 切换显卡命令.md → general/
+  📄 打前哨站.md → general/
+  📄 拉取不是自己fork仓库的他人分支.md → general/
+  📄 新拓展坞的IP设置.md → general/
+  📄 新车流程.md → general/
+  📄 新车网口配置.md → resources/
+  📄 最大力矩 最大转速计算.md → general/
+  📄 有线调车.md → general/
+  📄 查看系统日志.md → signals/
+  已处理: 80/80
+  📄 测pitch上下限位.md → general/
+  📄 测云台电机反应速度.md → robotics/
+  📄 自瞄.md → general/
+  📄 调车测试整合.md → general/
+  📄 跑仿真或实车.md → general/
+  📄 远程遥控.md → general/
+  📄 Screenshot.md → general/
+  📄 2023-04-20.md → general/
+  📄 2024-01-28.md → general/
+  📄 Input Widgets控件.md → qt/
+  已处理: 90/90
+  📄 LineEdit控件.md → qt/
+  📄 Markdown中如何实现内容折叠操作.md → resources/
+  📄 PCB设计.md → general/
+  📄 QT项目开发需求.md → projects/
+  📄 README.md → general/
+  📄 SpaceItem弹簧控件.md → qt/
+  📄 TextEdit控件.md → qt/
+  📄 URDF and Git pre-commit gitignore学习历程.md → ros/
+  📄 Widget控件.md → qt/
+  📄 人际学习.md → learning/
+  已处理: 100/100
+  📄 按钮控件.md → qt/
+  📄 数学建模.md → math/
+  📄 易经.md → math/
+  📄 朝花夕拾.md → general/
+  📄 未来学习.md → learning/
+  📄 样式表.md → resources/
+  📄 第三章.md → electronics/
+  📄 线性代数.md → math/
+
+✅ 分类完成!
+📊 统计: 处理了 0 个文件
+
+📊 分类完成报告
+──────────────
+生成时间: Fri Feb 27 02:02:49 PM CST 2026
+
+📁 各分类文档数量:
+  docs/: 268 个文档
+    qt: 33
+    cpp: 3
+    linux: 10
+    robotics: 23
+    ros: 24
+    vision: 2
+    embedded: 15
+    general: 158
+  notes/: 30 个文档
+    signals: 10
+    learning: 7
+    math: 7
+    electronics: 6
+  projects/: 6 个文档
+  resources/: 12 个文档
+
+📈 总计: 316 个Markdown文档
+⚠️  未分类文件: 158 个 (在 docs/general/)
+
+🎉 分类整理完成!
+下一步: 开始内容优化和知识扩展
