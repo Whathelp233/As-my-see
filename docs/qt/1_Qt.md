@@ -9,10 +9,6 @@
 
 qt的main函数中调用exec()时会进入死循环，如果正常退出会返回0，不正常则返回大于0的值。
 
-
-
-
-
 **qt_creator和clion开发是不一样的**：
 
 https://zhuanlan.zhihu.com/p/461896034
@@ -27,33 +23,23 @@ https://zhuanlan.zhihu.com/p/461896034
 
 - 开发目录不可含有中文
 
-
-
 # 配置
 
 # 常用类别
 
 ![2022-08-01 07-48-18 的屏幕截图](Qt.assets/2022-08-01 07-48-18 的屏幕截图.png)
 
-
-
 # 使用基类
 
 ![2022-08-01 07-52-30 的屏幕截图](Qt.assets/2022-08-01 07-52-30 的屏幕截图-16593115902391.png)
-
-
 
 # 文件结构
 
 ![2022-08-01 08-21-45 的屏幕截图](Qt.assets/2022-08-01 08-21-45 的屏幕截图.png)
 
-
-
 # 双重编译
 
 ![2022-08-01 08-29-47 的屏幕截图](Qt.assets/2022-08-01 08-29-47 的屏幕截图.png)
-
-
 
 # QT_designer安装
 
@@ -70,10 +56,6 @@ https://zhuanlan.zhihu.com/p/461896034
 > ```c
 > $ designer        //启动
 > ```
-
-
-
-
 
 # UI文件设计与运行机制
 
@@ -98,18 +80,12 @@ https://zhuanlan.zhihu.com/p/461896034
 3、Grid Layout 网格状布局，网格状布局大小改变时，每个网格的大小都改变
 4、Form Layout 窗体布局，与网格状布局类似，但是只有最右侧的一列网格会改变大小
 
-
-
 **Spacers**
 
 ![img](./Qt.assets/2021042111070689.png)
 
 1、Horizontal Spacer 一个用于水平分隔的空格,可以将多个组件水平分隔开，添加N个即隔开N个空格距离
  2、Vertical Spacer 一个用于垂直分隔的空格,可以将多个组件垂直分隔开，添加N个即隔开N个空格距离
-
-
-
-
 
 **Buttors**
 
@@ -129,8 +105,6 @@ https://zhuanlan.zhihu.com/p/461896034
 >
 > Dialog Button Box 对话框按钮
 
-
-
 **Item Views**
 
 ![img](./Qt.assets/20210421111153330.png)
@@ -143,8 +117,6 @@ https://zhuanlan.zhihu.com/p/461896034
 >
 > Column View 直栏浏览
 
-
-
 **Item Widgets**
 
 ![img](./Qt.assets/20210421144418247.png)
@@ -155,23 +127,15 @@ https://zhuanlan.zhihu.com/p/461896034
 >
 > Table Widget 表小部件
 
-
-
-
-
 > Label:  标签
 >
 > 
 
 ![2022-08-01 09-12-36 的屏幕截图](Qt.assets/2022-08-01 09-12-36 的屏幕截图.png)
 
-
-
 # 信号槽
 
 > 信号槽每一个信号有4个元素，可以填入发送者，信号，接受者，槽
-
-
 
 # 插入资源
 
@@ -199,8 +163,6 @@ https://zhuanlan.zhihu.com/p/461896034
 </RCC>
 ```
 
-
-
 2 载入prc文件
 
  右击想加图标的Tool Button按钮，点击change styleSheet
@@ -213,41 +175,19 @@ https://zhuanlan.zhihu.com/p/461896034
 
  在弹出的窗口中，选择要添加的图标
 
-
-
-
-
-
-
-
-
 # 主函数文件
 
 ![2022-08-01 09-25-52 的屏幕截图](Qt.assets/2022-08-01 09-25-52 的屏幕截图.png)
 
-
-
-
-
-
-
-
-
-
-
 # 程序打包
 
 > https://blog.csdn.net/kangshuaibing/article/details/84951619?utm_medium=distribute.pc_relevant.none-task-blog-OPENSEARCH-1.nonecase&depth_1-utm_source=distribute.pc_relevant.none-task-blog-OPENSEARCH-1.nonecase
-
-
 
 # 安卓环境
 
 > https://blog.csdn.net/Arcofcosmos/article/details/118822458?spm=1001.2014.3001.5501
 
 部署：https://blog.csdn.net/Arcofcosmos/article/details/122452036
-
-
 
 # 添加视频
 
@@ -258,8 +198,6 @@ find_package(Qt5 COMPONENTS Widgets LinguistTools Multimedia MultimediaWidgets R
 include_directories(${Qt5MultimediaWidgets_INCLUDE_DIRS})
 ```
 
-
-
 # 多线程
 
 > https://blog.csdn.net/qq_54395977/article/details/122725537
@@ -267,8 +205,6 @@ include_directories(${Qt5MultimediaWidgets_INCLUDE_DIRS})
 标准示范：
 
 https://blog.csdn.net/quietbxj/article/details/121245304
-
-
 
 **实例**
 
@@ -299,12 +235,6 @@ void Mythread::run() {
 }
 ```
 
-
-
-
-
-
-
 # 报错
 
 # ui_mainwindow.h
@@ -323,12 +253,6 @@ void Mythread::run() {
 
 这时候编译，就可以看到原来报错找不到定义或头文件的地方，都不会再报错了，因为编译过后，`ui_MainWindow.h`文件就会生成。
 
-
-
-
-
-
-
 # 小知识点
 
 # QString转char*
@@ -340,8 +264,6 @@ void Mythread::run() {
 qDebug() << "aaa" << qstring.toUtf8().data();
 ```
 
-
-
 # 释放窗口资源
 
 \1. 对于使用指针，使用new创建的窗口，当然可以使用delete显示的释放其占用的资源：
@@ -351,8 +273,6 @@ Widget *w = new Widget();
 
 delete w;
 ```
-
-
 
 \2. 对于使用指针，使用new创建的窗口，还可以使用`QWidget::setAttribute`方法来当窗口关闭后自动释放其占用的资源，而不用户显示的去调用delete释放，此方法当然也会调用窗口的析构函数：
 
@@ -378,12 +298,6 @@ Widget *w = new Widget(parent);
 
 但这时，如果父Widget不结束，这个窗口的资源一直会占用着。
 
-
-
-
-
-
-
 # 小项目
 
 # 女优抽取(初级)
@@ -402,8 +316,6 @@ Widget *w = new Widget(parent);
 > 即
 > m<=rand()%(n-m+1)+m<=n
 > ```
-
-
 
 ```c
 #include iostream;
@@ -432,8 +344,6 @@ int main ()
 
 ```
 
-
-
 # 结果输出到文本框
 
 > 因为append()函数使用字符串类型是QString，所以需要先转换vector
@@ -458,8 +368,6 @@ buf = QObject::tr("<font color=\"#FFD700\">%1</font>").arg(buf);
 buf = QObject::tr("<font color=\"#FFD700\">%1</font>%2")
                 .arg(buf, QString("（保底）"));
 ```
-
-
 
 # 历史记录
 
@@ -488,8 +396,6 @@ vector<vector<int>> vec(rows, vector<int>(cols, 0));
 vector<vector<vector<int>>> vec(n1, vector<vector<int>>(n2, vector<int>(n3, 0)));
 ```
 
-
-
 **删除vector第一个元素**
 
 ```c
@@ -510,10 +416,6 @@ vecInt.clear();
     }
 ```
 
-
-
-
-
 **最终采用**
 
 > pair<>
@@ -522,7 +424,6 @@ vecInt.clear();
 
 ```c
 #include <cstdlib>
-
 
 std::vector<pair<int,int>> history;
 
@@ -533,10 +434,6 @@ history.push_back(std::make_pair(a,b));
 ````c
 //不知为何，使用erase(history.bengin(),history.end());后保底字体颜色会变。
 ````
-
-
-
-
 
 **查找vector元素**
 
@@ -554,8 +451,6 @@ t = find(v.begin(),v.end(),查找的元素);
 和v.end()进行比较，如果找到了，那么t就不会指向 v.end(),也就是 t != v.end()
 ```
 
-
-
 # 抽卡视频
 
 现有的百度关于cmake添加QT multimedia包(mac,ubantu)都是错误，正确的添加方式如下，cmake 添加2行
@@ -564,8 +459,6 @@ t = find(v.begin(),v.end(),查找的元素);
 set(Qt5MultimediaWidgets_DIR **/Qt5.9.8/5.9.8/clang_64/lib/cmake/Qt5MultimediaWidgets)#包的位置
 target_link_libraries(${PROJECT_NAME} Qt5::Widgets Qt5::Multimedia)#链接到库
 ```
-
-
 
 # 添加Multimedia库
 
@@ -579,12 +472,6 @@ find_package(Qt5 COMPONENTS Widgets Multimedia MultimediaWidgets REQUIRED)
 //target_link_libraries加入Qt5::MultimediaWidgets
 target_link_libraries(qt_AssWeCan_2 PRIVATE Qt5::Widgets Qt5::MultimediaWidgets)
 ```
-
-
-
-
-
-
 
 # 抽卡动图
 
@@ -621,21 +508,9 @@ void Mylabel::toBackGround() {
 }
 ```
 
-
-
-
-
-
-
-
-
 # 抽卡结果(图片)
 
 > Label标签有加入图片的能力，通过格栅布局将10连的结果以label的形式展示出来
-
-
-
-
 
 # 设置背景图片
 
@@ -669,8 +544,6 @@ setPalette(pal);
 setStyleSheet("border-image:url(:/bg.jpg)");
 ```
 
-
-
 **不知道为什么主窗口设置的图片会出现在控件上**
 
 > 已解决
@@ -688,8 +561,6 @@ setStyleSheet("border-image:url(:/bg.jpg)");
     label_background->show();
 ```
 
-
-
 **label显示图片**
 
 ```C
@@ -701,17 +572,11 @@ setStyleSheet("border-image:url(:/bg.jpg)");
 //样式表也可以显示图片
 ```
 
-
-
 **背景透明而字体正常显示**
 
 ```c
 setAttribute(Qt::WA_TranslucentBackground);
 ```
-
-
-
-
 
 **窗口透明度**
 
@@ -727,12 +592,6 @@ setWindowOpacity(0.5); //半透明
     opacity->setOpacity(0.2); //透明范围同窗口透明度
     ui->pushButton->setGraphicsEffect(opacity);
 ```
-
-
-
-
-
-
 
 # 设置圆角按钮
 
@@ -765,21 +624,9 @@ setStyleSheet("QToolButton{
 background-color: rgb(255, 253, 252);
 ```
 
-
-
-
-
-
-
-
-
 # 样式表：border边界
 
 https://blog.csdn.net/weixin_48465741/article/details/116244256
-
-
-
-
 
 # 鼠标事件
 
@@ -791,8 +638,6 @@ https://blog.csdn.net/weixin_48465741/article/details/116244256
 > QWidget::mouseDoubleClickEvent()
 > QWidget::mouseMoveEvent()
 > ```
-
-
 
 # 鼠标移动到控件触发事件
 
@@ -810,13 +655,9 @@ connect(m_tableView, &DTableView::entered, this, &SecurityLogDialog::doMouseTrac
 
 还有**leaveEvent()**事件，所以鼠标移动到按钮，按钮变化什么的不需要根据是否移动到其他控件时触发returnBtn()来恢复，直接重载leaveEvent()即可
 
-
-
 **判断是否在框内**
 
 https://blog.csdn.net/hushiwei1993/article/details/78204635
-
-
 
 # 鼠标按下
 
@@ -832,12 +673,6 @@ https://blog.csdn.net/hushiwei1993/article/details/78204635
        ···
     }
 ```
-
-
-
-
-
-
 
 # 鼠标划过变手形
 
@@ -880,17 +715,11 @@ enum CursorShape {
 
 ```
 
-![在这里插入图片描述](1_Qt.assets/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAQ-WQm-iOq-eskQ==,size_20,color_FFFFFF,t_70,g_se,x_16.png)
-
-
-
-
+![在这里插入图片描述](./1_Qt.assets/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAQ-WQm-iOq-eskQ==,size_20,color_FFFFFF,t_70,g_se,x_16.png)
 
 当然在designer中也可以设置
 
-![2022-10-21 15-38-27 的屏幕截图](1_Qt.assets/2022-10-21 15-38-27 的屏幕截图.png)
-
-
+![2022-10-21 15-38-27 的屏幕截图](./1_Qt.assets/2022-10-21 15-38-27 的屏幕截图.png)
 
 # 鼠标划过变色
 
@@ -903,7 +732,6 @@ allSelect->setStyleSheet("QPushButton{border-image: url(:/1.png) 0 0 0 0;border:
                         "QPushButton:checked{background-color: rgb(20, 62, 134);border:none;color:rgb(255, 255, 255);}");
 ```
 
-
 另一种设置按钮图标显示。下面代码功能是在一个按钮内显示图标和文字，效果为左图标，右文字。当鼠标滑过时图标切换为另一个图标。当点击鼠标后又切换到另一个图标。具体代码如下：
 
     QPushButton *readyRecoveryBtn = new QPushButton("str");
@@ -911,8 +739,6 @@ allSelect->setStyleSheet("QPushButton{border-image: url(:/1.png) 0 0 0 0;border:
     readyRecoveryBtn->setStyleSheet("QPushButton{background-image: url(:res/1.png);background-repeat: no-repeat;background-position:left;border:none;color:white;}"
                                 "QPushButton:hover{background-image: url(:res/1.png);background-repeat: no-repeat;background-position:left;border:none;color:rgb(255, 255, 255);}"
                                 "QPushButton:pressed{background-image: url(:res/1.png);background-repeat: no-repeat;background-position:left;border:none;color:rgb(255, 255, 255);}");
-
-
 
 我使用的是：
 
@@ -923,17 +749,9 @@ allSelect->setStyleSheet("QPushButton{border-image: url(:/1.png) 0 0 0 0;border:
                                     /*"QToolButton:checked{background-color: rgb(20, 62, 134);border:0px groove gray;border-radius:15px;}"*/);
 ```
 
-
-
-
-
 # 添加音效
 
-![2022-08-22 22-53-23 的屏幕截图](1_Qt.assets/2022-08-22 22-53-23 的屏幕截图.png)
-
-
-
-
+![2022-08-22 22-53-23 的屏幕截图](./1_Qt.assets/2022-08-22 22-53-23 的屏幕截图.png)
 
 # 网易云界面
 
@@ -989,10 +807,6 @@ void MainWindow::mouseReleaseEvent(QMouseEvent *e)
 
 这样就OK了，去掉窗口标题栏后还能拖动窗体
 
-
-
-
-
 # 百度网盘
 
 # 添加窗口阴影
@@ -1023,11 +837,7 @@ widgetInner->setMargin(24);//设置为0时，就看不到边框的阴影
 void QLayout::setContentsMargins(int left, int top, int right, int bottom)
 ```
 
-
-
-![在这里插入图片描述](1_Qt.assets/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2hlbGxva2FuZHk=,size_16,color_FFFFFF,t_70#pic_center.jpeg)
-
-
+![在这里插入图片描述](./1_Qt.assets/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2hlbGxva2FuZHk=,size_16,color_FFFFFF,t_70#pic_center.jpeg)
 
 **实现无边框窗口的阴影效果**
 
@@ -1040,10 +850,6 @@ this->setAttribute(Qt::WA_TranslucentBackground, true);
 this->setWindowFlags(Qt::Window | Qt::FramelessWindowHint);
 ```
 
-
-
-
-
 **最终使用**
 
 ```c
@@ -1054,8 +860,6 @@ this->setWindowFlags(Qt::Window | Qt::FramelessWindowHint);
   ui->main_widget->setGraphicsEffect(main_wid_shadow);
   ui->main_widget->setContentsMargins(1, 1, 1, 1);
 ```
-
-
 
 # 新方法：划过按钮的底色
 
@@ -1068,7 +872,6 @@ QListWidget
 	color:rgb(0,0,0);
 	background:rgb(255,255,255);
 }
-
 
 *
 {
@@ -1096,8 +899,6 @@ QListWidget::Item::selected  //选中触发
 }
 ```
 
-
-
 # QLabel改变字体颜色
 
 方法1使用色板
@@ -1117,8 +918,6 @@ setStyleSheet("color:red;");
 //setStyleSheet("color:#ff6600;");
 
 ```
-
-
 
 # 下拉框/隐藏Layout里的部件
 
@@ -1160,8 +959,6 @@ void Widget::ItemVisableTog()
 }
 ```
 
-
-
 # 不让图标挡住输入框
 
 > 我们在使用QLineEdit显示文本的时候，希望在左侧流出一些空白位置，这个时候就需要我们使用QLineEdit提供的setTextMargins函数：
@@ -1177,7 +974,6 @@ QSize size = QSize(30, 30);
 ui->lineEdit->setTextMargins(size.width(), 1, 1 , 1);
 ```
 
-
 ```c
   //提示信息
   ui->search_lineEdit->setPlaceholderText("请输入搜索内容");
@@ -1187,8 +983,6 @@ ui->lineEdit->setTextMargins(size.width(), 1, 1 , 1);
 
 其他花活;https://blog.csdn.net/foreverjueye/article/details/124420322
 
-
-
 # 取消输入框焦点
 
 > 输入框选中时会有蓝色边框，这个表示处于焦点状态，我们可以手动去焦
@@ -1196,8 +990,6 @@ ui->lineEdit->setTextMargins(size.width(), 1, 1 , 1);
 ```c
 ui->search_lineEdit->clearFocus();
 ```
-
-
 
 # 虚拟遥控器
 
@@ -1213,8 +1005,6 @@ scrollBar->setRange(0, 100);
 int middlePosition = 50;
 scrollBar->setValue(middlePosition);
 ```
-
-
 
 - 滑块大小改变
 
@@ -1253,8 +1043,6 @@ scrollBar->setStyleSheet(styleSheet);
 
 其中，`scrollBar` 是一个 `QScrollBar` 对象，通过 `setStyleSheet` 方法设置样式表。您可以根据需要添加其他属性，如颜色、边框等
 
-
-
 # TextBroswer Debug
 
 rqt不能ros info，所以新建一个QTextBroswer来打印日志
@@ -1278,8 +1066,6 @@ Line->insertPlainText(QString::fromStdString(str));
 Line->verticalScrollBar()->setValue(Line->verticalScrollBar()->maximumHeight());
 ```
 
-
-
 # 离开滑块旋钮自动归位
 
 使用一个定时器来调度。问题是如何让手感更好
@@ -1295,8 +1081,6 @@ if (!ui_.wheel->underMouse()) {
   else
     ui_.wheel->setValue(50 - (50 - ui_.wheel->value()) / 2);
 ```
-
-
 
 # 读取键盘
 
@@ -1327,15 +1111,11 @@ void GameGUI::keyPressEvent(QKeyEvent* event)
 }
 ```
 
-
-
 注意可能需要让焦点位于当前控件
 
 ```c++
 this->setFocus();
 ```
-
-
 
 # 忘记派生析构函数
 
@@ -1351,15 +1131,11 @@ public:
 KeyboardButton::~KeyboardButton() {}
 ```
 
-
-
 报错：
 
 > [ERROR] [1678173427.624253293]: Failed to load nodelet [MyPlugin_0] of type [MyPlugin]: Failed to load library /home/yuchen/usetest/RM_ROS/devel/lib//librqt_virtual_dbus.so. Make sure that you are calling the PLUGINLIB_EXPORT_CLASS macro in the library code, and that names are consistent between this macro and your XML. Error string: Could not load library (Poco exception = /home/yuchen/usetest/RM_ROS/devel/lib//librqt_virtual_dbus.so: undefined symbol: _**ZN14KeyboardButtonD1Ev**)
 >
 >  KeyboardButton是派生的类的名字
-
-
 
 # 内部鼠标事件
 
@@ -1384,8 +1160,6 @@ void KeyboardButton::wheelEvent(QWheelEvent *ev) {
   dbus_data_->m_z = ev->delta();
 }
 ```
-
-
 
 # 全局鼠标事件
 
@@ -1479,8 +1253,6 @@ if (LIBINPUT_FOUND)
 endif ()
 ```
 
-
-
 # input文件
 
 > 读取linux文件来实现，需要权限
@@ -1527,17 +1299,11 @@ void KeyboardButton::readMouseState() {
 >
 > x=1, y=1, left=0, middle=0, right=0
 
-
-
 # 多线程
 
 读取键盘文件的速度太慢了，加一个线程
 
 > [链接](https://blog.csdn.net/zong596568821xp/article/details/78893360)
-
-
-
-
 
 # 双滑块三色条
 
@@ -1566,18 +1332,12 @@ void ColorProgressBar::paintEvent(QPaintEvent *event)
 }
 ```
 
-
-
-
-
 # 更新按钮位置
 
 > 因为进入按钮后会聚焦在按钮，更新位置时获取的按钮坐标系下的位置，所以先设置透明后，判断点击范围在不在按钮内来触发
 
 ```c++
 ui->toolButton_left->setAttribute(Qt::WA_TransparentForMouseEvents, true); //设置透明，按钮不会响应鼠标事件
-
-
 
 判断是不是在范围内(替代clicked的功能)
 void MyWidget::mousePressEvent(QMouseEvent *event)
@@ -1604,10 +1364,6 @@ void MyParentWidget::mousePressEvent(QMouseEvent *event)
 }
 ```
 
-
-
-
-
 # 交通灯系统
 
 # 仅获取时间/日期
@@ -1618,8 +1374,6 @@ QTime currentTime = QTime::currentTime();
 // 获取当前日期
 QDate currentDate = QDate::currentDate();
 ```
-
-
 
 # 修改QlistWidgetitem
 
@@ -1657,8 +1411,6 @@ QScrollBar *scrollBar = listWidget->verticalScrollBar();
 scrollBar->setStyleSheet("QScrollBar { background-color: gray; border: 1px solid black; width: 10px; }");
 ```
 
-
-
 # 像素滚动而不是项目滚动
 
 ```c++
@@ -1668,15 +1420,9 @@ QListWidget *listWidget = new QListWidget;
 listWidget->setVerticalScrollMode(QAbstractItemView::ScrollPerPixel);
 ```
 
-
-
-
-
 # YahBoom机械臂项目
 
 > 使用机械臂与电脑通信，机械臂使用TCP传输视频给电脑，电脑识别结果发回机械臂，机械臂执行
-
-
 
 # 环境加入opencv，tcp
 
@@ -1707,10 +1453,6 @@ target_link_libraries(tcpTest PRIVATE
 
 ![2024-12-31 11-15-19 的屏幕截图](images/1_Qt/2024-12-31 11-15-19 的屏幕截图.png)
 
-
-
-
-
 #  TCP传输视频
 
 ---
@@ -1735,3 +1477,44 @@ target_link_libraries(tcpTest PRIVATE
 3. **调试技巧**
 
 > 最后更新: 2026-02-27 | 由OpenClaw优化
+
+## 概述
+
+本文档介绍qt相关技术的基本概念、原理和应用。
+
+## 技术原理
+
+Qt是一个跨平台的C++应用程序开发框架：
+
+### 核心组件
+1. **Qt Core**: 核心非GUI功能
+2. **Qt GUI**: 图形用户界面组件
+3. **Qt Widgets**: 扩展的UI控件
+4. **Qt Quick**: 声明式UI框架
+
+## 代码示例
+
+```cpp
+// Qt简单示例
+#include <QApplication>
+#include <QLabel>
+
+int main(int argc, char *argv[]) {
+    QApplication app(argc, argv);
+    
+    QLabel *label = new QLabel("Hello Qt!");
+    label->setAlignment(Qt::AlignCenter);
+    label->setWindowTitle("Qt Application");
+    label->resize(400, 300);
+    label->show();
+    
+    return app.exec();
+}
+```
+
+## 实践应用
+
+1. **学习路径**: 从基础到进阶的系统学习
+2. **项目实践**: 实际项目中的应用案例
+3. **最佳实践**: 经验总结和技巧分享
+4. **性能优化**: 提升效率和性能的方法
