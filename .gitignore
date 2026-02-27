@@ -1,0 +1,52 @@
+# 日志文件
+*.log
+enhancement.log
+knowledge_expansion.log
+finalization.log
+
+# 临时文件
+*.tmp
+*.temp
+*.bak
+*.backup
+
+# 系统文件
+.DS_Store
+Thumbs.db
+
+# 开发环境
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# 构建输出
+build/
+dist/
+*.o
+*.so
+*.a
+
+# 数据文件
+*.db
+*.sqlite
+*.csv
+
+# 大型文件
+*.zip
+*.tar.gz
+*.7z
+
+# 敏感信息
+.env
+*.key
+*.pem
+*.cert
+
+# 文档生成
+_site/
+docs/_build/
+
+# 备份目录
+backup/
+original/
