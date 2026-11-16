@@ -1,0 +1,2 @@
+# Markdown double-space line breaks are content, not trailing-space errors.
+*.md whitespace=-blank-at-eol
